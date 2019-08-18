@@ -19,11 +19,18 @@ android {
     }
 }
 
+ext {
+    appCompatVersion = '1.0.0'
+    designLibraryVersion = '1.0.0'
+    rxJavaVersion = '1.1.4'
+    rxAndroidVersion = '1.2.0'
+}
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:28.0.0'
-    compile 'io.reactivex:rxandroid:1.2.0'
-    compile 'io.reactivex:rxjava:1.1.4'
-    compile 'com.android.support:design:28.0.0'
+
+    implementation  "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation  "io.reactivex:rxandroid:$rxAndroidVersion"
+    implementation  "io.reactivex:rxjava:$rxJavaVersion"
+    implementation  "com.google.android.material:material:$designLibraryVersion"
+
 }
