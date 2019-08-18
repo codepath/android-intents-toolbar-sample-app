@@ -5,12 +5,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -46,13 +45,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        tvNoContact = (TextView) findViewById(R.id.tvNoContact);
-        layoutNoContact = (LinearLayout) findViewById(R.id.layoutContact);
-        ivSearch = (ImageView) findViewById(R.id.ivSearch);
-        tvSearch = (TextView) findViewById(R.id.tvSearch);
+        tvNoContact = findViewById(R.id.tvNoContact);
+        layoutNoContact = findViewById(R.id.layoutContact);
+        ivSearch = findViewById(R.id.ivSearch);
+        tvSearch = findViewById(R.id.tvSearch);
         ivSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE);
             }
         });
-        tvNumber = (TextView) findViewById(R.id.tvNumber);
-        tvNotes = (TextView) findViewById(R.id.tvNotes);
-        ivCall = (ImageView) findViewById(R.id.ivCall);
+        tvNumber = findViewById(R.id.tvNumber);
+        tvNotes = findViewById(R.id.tvNotes);
+        ivCall = findViewById(R.id.ivCall);
         ivCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        ivMenu = (ImageView) findViewById(R.id.ivMenu);
+        ivMenu = findViewById(R.id.ivMenu);
         ivMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_CALL_PHONE: {
                 // If request is cancelled, the result arrays are empty.
@@ -105,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
                     // permission was granted
                     makeCall();
                 } else {
-
                     // permission denied
                 }
                 return;
