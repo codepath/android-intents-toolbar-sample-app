@@ -15,7 +15,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
 
     private Listener mListener;
 
-    public static interface Listener {
+    public interface Listener {
         void onClickContact(int position);
     }
 
@@ -36,7 +36,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.list_item, parent, false);
-            viewHolder.name = (TextView) convertView.findViewById(R.id.tvName);
+            viewHolder.name = convertView.findViewById(R.id.tvName);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
